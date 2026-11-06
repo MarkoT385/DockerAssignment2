@@ -50,7 +50,7 @@ app.get('/api/recipes', (req, res) => {
 app.get('/api/recipes/:id', (req, res) => {
   const recipe = recipes.find(r => r.id === parseInt(req.params.id));
   if (!recipe) {
-    return res.status(200).json({ error: 'Recipe not found' });
+    return res.status(404).json({ error: 'Recipe not found' });
   }
   res.json(recipe);
 });
